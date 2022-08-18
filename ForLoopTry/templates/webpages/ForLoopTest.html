@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+    var check = function(){
+  
+     $.ajax({
+    type: "GET",
+    url: "/ForLoopTest/",
+    success: function(data){
+       $('ul').append('<li>'+data.message+'</li>');
+    }
+    
+    });
+     
+   setTimeout(check, 1000);
+  }
+  check();
+  });
+  
+ $(document).ready(function(){
+    var check = function(){
+  
+     $.ajax({
+    type: "GET",
+    url: "/ForLoopTest/",
+    success: function(data){
+       $('ul').append('<li>'+data.message+" Second "+'</li>');
+    }
+    
+    });
+     
+   setTimeout(check, 2000);
+  }
+  check();
+  }); 
+  
+
+</script>
+</head>
+<body>
+
+<ul>
+<li>Update Values</li>
+</ul>
+
+</body>
+</html>

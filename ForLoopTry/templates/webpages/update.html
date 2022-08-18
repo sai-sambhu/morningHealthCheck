@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js">
+</script>
+<script>
+$(document).ready(function(){
+
+$("#but").click(function(){
+  $.ajax({
+  type: "POST",
+  url: "/update/",
+  dataType: "json",
+  data: {"item": $("#text").val(),
+  "csrfmiddlewaretoken": '{{ csrf_token }}'
+  },
+  success: function(data){
+  $("#para").text("Value Updated "+data.message);
+  }
+  
+  });
+  });
+});
+</script>
+</head>
+<body>
+
+<input type="text" id="text">
+<button id="but">Update</button>
+<h3><p id="para"></p></h3>
+</body>
+</html>
